@@ -23,16 +23,6 @@ public class TestProjectApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void testJpaMethods() {
-//			User user = new User();
-//			user.setEmail("someEmail@gmail.com");
-//			user.setName("Smith");
-//			user.setPhone("1234");
-//			userService.createUsers(user);
-//			User user1 = new User();
-//			user1.setName("Jon Dorian");
-//			user1.setEmail("gmailEmail@gmail.com");
-//			user1.setPhone("4321");
-//			userService.createUsers(user1);
 		userService.deleteUserByNameEqualsAndIdEquals("Jon Dorian", 7);
 		System.out.println(userService.findAll());
 	}
