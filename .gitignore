@@ -33,7 +33,7 @@ build/
 .vscode/
 resources\
 target\
-.mvn/
+.mvn/*
 mvnw
 mvnw.cmd
 test_project.iml
