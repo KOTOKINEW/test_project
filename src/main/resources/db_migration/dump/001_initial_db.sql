@@ -1,20 +1,16 @@
-CREATE DATABASE docker_db;
+CREATE SCHEMA db_schema
 
-GO
-
-CREATE SCHEMA public AUTHORIZATION docker_db_user
-
-CREATE TABLE user
+CREATE TABLE db_schema.user
 (
-    id BIGINT,
-    name CHARACTER VARYING(200),
-    email CHARACTER VARYING(254),
-    phone CHARACTER VARYING(20)
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    email VARCHAR(254) NOT NULL,
+    phone VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE account_information
+CREATE TABLE db_schema.account_information
 (
-    id BIGINT,
-    login  CHARACTER VARYING(200),
-    password CHARACTER VARYING(254)
+    user_id  BIGINT PRIMARY KEY REFERENCES db_schema.user(id),
+    login  VARCHAR(200) NOT NULL,
+    password VARCHAR(254) NOT NULL
 );
