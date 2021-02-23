@@ -1,4 +1,4 @@
-package com.kotoki.stud.test_project.entity;
+package com.kotoki.stud.test_project.user.entity;
 
 import lombok.Data;
 import javax.persistence.*;
