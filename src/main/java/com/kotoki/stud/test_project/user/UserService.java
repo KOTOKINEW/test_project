@@ -1,7 +1,7 @@
-package com.kotoki.stud.test_project.service;
+package com.kotoki.stud.test_project.user;
 
-import com.kotoki.stud.test_project.entity.User;
-import com.kotoki.stud.test_project.repository.UserRepository;
+import com.kotoki.stud.test_project.user.User;
+import com.kotoki.stud.test_project.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
