@@ -2,13 +2,14 @@ package com.kotoki.stud.test_project.service;
 
 import com.kotoki.stud.test_project.entity.User;
 import com.kotoki.stud.test_project.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserService {
-
+    @Autowired
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {

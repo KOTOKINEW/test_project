@@ -38,3 +38,4 @@ mvnw
 mvnw.cmd
 test_project.iml
 maven-wrapper.jar
+docker-compose.yml

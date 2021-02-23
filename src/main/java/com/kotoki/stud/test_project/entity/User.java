@@ -1,14 +1,11 @@
 package com.kotoki.stud.test_project.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user", schema = "public")
-@Getter(AccessLevel.PUBLIC)
-@Setter(AccessLevel.PUBLIC)
+@Table(name = "user", schema = "db_schema")
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

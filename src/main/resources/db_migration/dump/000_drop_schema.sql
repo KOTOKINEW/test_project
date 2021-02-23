@@ -1,0 +1,1 @@
+DROP SCHEMA db_schema CASCADE;
