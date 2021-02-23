@@ -1,6 +1,6 @@
-package com.kotoki.stud.test_project.user.repository;
+package com.kotoki.stud.test_project.user;
 
-import com.kotoki.stud.test_project.user.entity.User;
+import com.kotoki.stud.test_project.user.User;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

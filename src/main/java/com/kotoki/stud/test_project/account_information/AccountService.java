@@ -1,8 +1,5 @@
-package com.kotoki.stud.test_project.account_information.service;
+package com.kotoki.stud.test_project.account_information;
 
-import com.kotoki.stud.test_project.account_information.entity.Account;
-import com.kotoki.stud.test_project.account_information.repository.AccountRepository;
-import com.kotoki.stud.test_project.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +17,10 @@ public class AccountService {
     public List<Account> findAll() {
         return accountRepository.findAll();
     }
-    public List<Account> findAccountByLogin(String login) {
-        return accountRepository.findAccountByLogin(login);
+    public Account findByLogin(String login) {
+        return accountRepository.findByLogin(login);
     }
-    public Account findById(Long accountId) {
+    public Account findByUserId(Long accountId) {
     return accountRepository.findById(accountId).orElse(null);
 }
 }

@@ -1,4 +1,4 @@
-package com.kotoki.stud.test_project.account_information.entity;
+package com.kotoki.stud.test_project.account_information;
 
 import lombok.Data;
 import javax.persistence.*;
@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Data
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    @Column(name = "user_id")
+    private Long userId;
 
     @Column
     private String login;
@@ -20,7 +20,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "user_id=" + user_id +
+                "user_id=" + userId +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 '}';
