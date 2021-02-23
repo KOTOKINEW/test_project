@@ -7,9 +7,9 @@ INSERT INTO db_schema.user (name, email, phone) VALUES
 ('Vitalik Vtoroi', 'vitalik2@nas2.da', '375291111111');
 
 INSERT INTO db_schema.account_information VALUES
-(1, 'miu', '123456'),
-(2, 'Oleg_sex_228', '1337'),
-(3, 'Kiruxa-saltuxa', 'xoba228'),
-(4, 'Anton_Antoxa', 'X3pass'),
-(5, 'Polovinka-Vitalika', 'Kat'),
-(6, 'Vitalika-Polovinka', 'uxa');
+((SELECT id  FROM db_schema.user WHERE name = 'Kotik'), 'miu', '123456'),
+((SELECT id  FROM db_schema.user WHERE name = 'Oleg'), 'Oleg_sex_228', '1337'),
+((SELECT id  FROM db_schema.user WHERE name = 'Kirill'), 'Kiruxa-saltuxa', 'xoba228'),
+((SELECT id  FROM db_schema.user WHERE name = 'Toxa'), 'Anton_Antoxa', 'X3pass'),
+((SELECT id  FROM db_schema.user WHERE name = 'Vitalik Pervii'), 'Polovinka-Vitalika', 'Kat'),
+((SELECT id  FROM db_schema.user WHERE name = 'Vitalik Vtoroi'), 'Vitalika-Polovinka', 'uxa');
