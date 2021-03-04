@@ -1,12 +1,18 @@
 package com.kotoki.stud.test_project.user;
 
-import lombok.Data;
+import lombok.*;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user", schema = "db_schema")
-@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
