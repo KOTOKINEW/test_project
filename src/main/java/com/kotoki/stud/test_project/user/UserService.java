@@ -20,7 +20,7 @@ public class UserService {
         this.accountRepository = accountRepository;
     }
 
-    public void createUsers(User user) {
+    public void createUser(User user) {
         userRepository.save(user);
     }
 
