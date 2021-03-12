@@ -1,5 +1,6 @@
 package com.kotoki.stud.test_project;
 
+import com.kotoki.stud.test_project.account_information.Account;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.kotoki.stud.test_project.user.UserService;
@@ -20,7 +21,7 @@ public class TestProjectApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void testJpaMethods() {
-		userService.deleteUserByNameEqualsAndIdEquals("Jon Dorian", 7);
-		System.out.println(userService.findAll());
+
+		System.out.println(userService.findByLogin("Anton_Antoxa"));
 	}
 }

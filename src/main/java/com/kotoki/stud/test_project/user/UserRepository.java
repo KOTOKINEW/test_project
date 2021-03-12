@@ -18,7 +18,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findUserByNameIsLike(String name);
 
-
     @Transactional
     void deleteUserByNameEqualsAndIdEquals(String name, long id);
 }

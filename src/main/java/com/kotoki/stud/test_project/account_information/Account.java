@@ -1,14 +1,14 @@
 package com.kotoki.stud.test_project.account_information;
 
 import lombok.Data;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Getter;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "account_information", schema = "db_schema")
 @Data
+
 public class Account {
     @Id
     @Column(name = "user_id")

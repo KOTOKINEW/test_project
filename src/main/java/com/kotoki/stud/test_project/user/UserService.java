@@ -1,7 +1,8 @@
 package com.kotoki.stud.test_project.user;
 
-import com.kotoki.stud.test_project.user.User;
-import com.kotoki.stud.test_project.user.UserRepository;
+import com.kotoki.stud.test_project.account_information.AccountRepository;
+import com.kotoki.stud.test_project.custom_exception.SearchException;
+import com.kotoki.stud.test_project.utils.UserDtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,12 @@ import java.util.List;
 public class UserService {
     @Autowired
     private final UserRepository userRepository;
+    @Autowired
+    private final AccountRepository accountRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, AccountRepository accountRepository, UserDtoMapper userDtoMapper) {
         this.userRepository = userRepository;
+        this.accountRepository = accountRepository;
     }
 
     public void createUsers(User user) {
@@ -24,8 +28,13 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User findById(Long userId) {
-        return userRepository.findById(userId).orElse(null);
+    public User findByAccountId(Long userId) throws SearchException {
+
+        return userRepository.findById(userId).orElseThrow(() -> new SearchException("Not valid id"));
+    }
+
+    public User findByLogin(String login) {
+        return userRepository.findById(accountRepository.findByLogin(login).getUserId()).orElse(null);
     }
 
     public List<User> findAllByName(String name) {
