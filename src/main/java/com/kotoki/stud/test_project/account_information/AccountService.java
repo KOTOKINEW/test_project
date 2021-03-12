@@ -8,19 +8,22 @@ import java.util.List;
 @Service
 public class AccountService {
     @Autowired
-    private final AccountRepository accountRepository;
+    private AccountRepository accountRepository;
 
-    public AccountService(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
-    }
-
-    public List<Account> findAll() {
+    List<Account> findAll() {
         return accountRepository.findAll();
     }
+
     public Account findByLogin(String login) {
         return accountRepository.findByLogin(login);
     }
-    public Account findByUserId(Long accountId) {
-    return accountRepository.findById(accountId).orElse(null);
-}
+    public Long findIdByLogin(String login) {
+        return accountRepository.findIdByLogin(login);
+    }
+
+    Account findByUserId(Long accountId) {
+        return accountRepository.findById(accountId).orElse(null);
+    }
+
+
 }

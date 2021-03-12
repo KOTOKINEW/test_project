@@ -1,55 +1,49 @@
 package com.kotoki.stud.test_project.user;
 
 import com.kotoki.stud.test_project.account_information.AccountRepository;
+import com.kotoki.stud.test_project.account_information.AccountService;
 import com.kotoki.stud.test_project.custom_exception.SearchException;
-import com.kotoki.stud.test_project.utils.UserDtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserService {
+class UserService {
     @Autowired
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
-    private final AccountRepository accountRepository;
+    private AccountService accountService;
 
-    public UserService(UserRepository userRepository, AccountRepository accountRepository, UserDtoMapper userDtoMapper) {
-        this.userRepository = userRepository;
-        this.accountRepository = accountRepository;
-    }
-
-    public void createUser(User user) {
+    void create(User user) {
         userRepository.save(user);
     }
 
-    public List<User> findAll() {
+    List<User> findAll() {
         return userRepository.findAll();
     }
 
-    public User findByAccountId(Long userId) throws SearchException {
-
-        return userRepository.findById(userId).orElseThrow(() -> new SearchException("Not valid id"));
+    User findById(Long id) throws SearchException {
+        return userRepository.findById(id).orElseThrow(() -> new SearchException("Not valid id"));
     }
 
-    public User findByLogin(String login) {
-        return userRepository.findById(accountRepository.findByLogin(login).getUserId()).orElse(null);
+    User findByLogin(String login) {
+        return userRepository.findById(accountService.findIdByLogin(login)).orElse(null);
     }
 
-    public List<User> findAllByName(String name) {
+    List<User> findAllByName(String name) {
         return userRepository.findAllByName(name);
     }
 
-    public List<User> findUserByEmailEndingWith(String email) {
+    List<User> findByEmailEndingWith(String email) {
         return userRepository.findUserByEmailContains(email);
     }
 
-    public List<User> findUserByNameIsLike(String name) {
+    List<User> findByNameIsLike(String name) {
         return userRepository.findUserByNameIsLike(name);
     }
 
-    public void deleteUserByNameEqualsAndIdEquals(String name, long id) {
+    void deleteByNameEqualsAndIdEquals(String name, long id) {
         userRepository.deleteUserByNameEqualsAndIdEquals(name, id);
     }
 
